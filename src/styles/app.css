@@ -1,0 +1,22 @@
+.box-wrapper {
+    padding: 5px !important;
+}
+
+.box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    border: solid 1px #ccc;
+    border-radius: 10px;
+}
+
+.periodo-index {
+    flex: 0.2;
+    font-weight: bolder;
+}
+
+.values {
+    flex: 0.8;
+}

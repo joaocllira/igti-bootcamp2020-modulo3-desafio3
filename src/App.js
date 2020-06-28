@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useCallback, useState } from 'react';
+import './styles/app.css';
+import Form from './components/Form';
+import Installments from './components/Installments';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    const [values, setValues] = useState({
+        montante: 1000,
+        juros: 1.0,
+        periodo: 1
+    });
+
+    const retrieveValues = useCallback((newValues) => {
+        setValues(newValues);
+    }, []);
+
+    return (
+        <div className="container"> 
+            <div className="row">
+                <div className="col s12 center">
+                    <h2>React - Juros Compostos</h2>
+                </div>
+            </div>
+            
+            <Form returnValues={retrieveValues} />
+            
+            <Installments {...values} />
+        </div>
+    );
 }
 
 export default App;
